@@ -59,6 +59,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routers
-
+app.use(require('./rutas/index.rutas'))
 
 module.exports = app;

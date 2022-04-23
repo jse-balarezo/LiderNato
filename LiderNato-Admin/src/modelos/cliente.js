@@ -1,18 +1,21 @@
-const proyecto = (sequelize, type) =>{                     //Nombre de la constante
-    return sequelize.define('proyectos', {                 //aqui va el nombre de la tabla que vamos a crear
-        idProyecto:{
+const cliente = (sequelize, type) =>{                     //Nombre de la constante
+    return sequelize.define('clientes', {                 //aqui va el nombre de la tabla que vamos a crear
+        idCliente:{
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
         username: type.STRING(99),
         password: type.STRING,
-        creacionUsuario:{
+        name: type.STRING(50),
+        correo: type.STRING(70),
+        phone: type.INTEGER,
+        creacionCliente:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
             allowNull: false
         },
-        actualizacionUsuario:{
+        actualizacionCliente:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP '),
             allowNull: false
@@ -22,5 +25,4 @@ const proyecto = (sequelize, type) =>{                     //Nombre de la consta
     }) 
 }
 
-module.exports = proyecto                                     //verificar el nombre
-    
+module.exports = cliente                                    //verificar el nombre
