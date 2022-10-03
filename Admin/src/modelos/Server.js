@@ -2,10 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const userRouter = require("../Rutas/user.rutas");
 const authRouter = require("../Rutas/auth.rutas");
-const artistRouter = require("../Rutas/artist.rutas");
-const artistAuthRouter = require("../Rutas/artistAuth.rutas");
+
 const productsRouter = require("../Rutas/product.rutas");
-const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
+
 const cartRouter = require("../Rutas/cart.rutas");
 const liderandoRouter = require("../Rutas/liderando.rutas");
 const lideresSocialesRouter = require("../Rutas/lideresSociales.rutas");
@@ -15,6 +14,18 @@ const liderazgoRouter = require("../Rutas/liderazgo.rutas");
 const autoconocimientoRouter = require("../Rutas/autoconocimiento.rutas");
 const dentroRouter = require("../Rutas/dentro.rutas");
 const fundamentosRouter = require("../Rutas/fundamentos.rutas");
+const alejandroRouter = require("../Rutas/alejandro.rutas");
+const gandhiRouter = require("../Rutas/gandhi.rutas");
+const guevaraRouter = require("../Rutas/guevara.rutas");
+const mandelaRouter = require("../Rutas/mandela.rutas");
+const benedictoRouter = require("../Rutas/benedicto.rutas");
+const granRouter = require("../Rutas/gran.rutas");
+const lamaRouter = require("../Rutas/lama.rutas");
+const mahomaRouter = require("../Rutas/mahoma.rutas");
+const gatesRouter = require("../Rutas/gates.rutas");
+const muellerRouter = require("../Rutas/mueller.rutas");
+const nadellaRouter = require("../Rutas/nadella.rutas");
+const ponyRouter = require("../Rutas/pony.rutas");
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 
@@ -27,9 +38,7 @@ class Server {
     this.paths = {
       usersPath: "/",
       authPath: "/auth",
-      artistPath: "/",
-      artistAuthPath: "/auth",
-      artistCataloguePath: "/",
+      
       productsPath: "/",
       cartPath: "/",
       liderandoPath: "/",
@@ -40,6 +49,18 @@ class Server {
       autoconocimientoPath: "/",
       dentroPath: "/",
       fundamentosPath: "/",
+      alejandroPath: "/",
+      gandhiPath: "/",
+      guevaraPath: "/",
+      mandelaPath: "/",
+      benedictoPath: "/",
+      granPath: "/",
+      lamaPath: "/",
+      mahomaPath: "/",
+      gatesPath: "/",
+      muellerPath: "/",
+      nadellaPath: "/",
+      ponyPath: "/",
     };
     this.conectarDb();
     this.app.use(cors());
@@ -59,19 +80,34 @@ class Server {
   routes() {
     this.app.use(this.paths.usersPath, userRouter);
     this.app.use(this.paths.authPath, authRouter);
-    this.app.use(this.paths.artistPath, artistRouter);
-    this.app.use(this.paths.artistAuthPath, artistAuthRouter);
-    this.app.use(this.paths.artistCataloguePath, artistCatalogueRouter);
+    
     this.app.use(this.paths.productsPath, productsRouter);
     this.app.use(this.paths.cartPath, cartRouter);
+    //menus
     this.app.use(this.paths.liderandoPath, liderandoRouter);
     this.app.use(this.paths.lideresSocialesPath, lideresSocialesRouter);
     this.app.use(this.paths.lideresPoliticosPath, lideresPoliticosRouter);
     this.app.use(this.paths.lideresPoliticosPath, lideresReligiososRouter);
+    //liderando
     this.app.use(this.paths.liderazgoPath, liderazgoRouter);
     this.app.use(this.paths.autoconocimientoPath, autoconocimientoRouter);
     this.app.use(this.paths.dentroPath, dentroRouter);
     this.app.use(this.paths.fundamentosPath, fundamentosRouter);
+    //Politicos
+    this.app.use(this.paths.alejandroPath, alejandroRouter);
+    this.app.use(this.paths.gandhiPath, gandhiRouter);
+    this.app.use(this.paths.guevaraPath, guevaraRouter);
+    this.app.use(this.paths.mandelaPath, mandelaRouter);
+    //Religiosos
+    this.app.use(this.paths.benedictoPath, benedictoRouter);
+    this.app.use(this.paths.granPath, granRouter);
+    this.app.use(this.paths.lamaPath, lamaRouter);
+    this.app.use(this.paths.mahomaPath, mahomaRouter);
+    //Sociales
+    this.app.use(this.paths.gatesPath, gatesRouter);
+    this.app.use(this.paths.muellerPath, muellerRouter);
+    this.app.use(this.paths.nadellaPath, nadellaRouter);
+    this.app.use(this.paths.ponyPath, ponyRouter);
   }
   listen() {
     this.app.listen(this.port);
