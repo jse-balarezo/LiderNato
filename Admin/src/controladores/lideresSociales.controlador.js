@@ -1,5 +1,5 @@
 const lideresSocialesCtl = {};
-lideresSocialesCtl.renderLiderando = (req, res) => {
+lideresSocialesCtl.renderlideresSociales = (req, res) => {
   res.render("menus/lideresSociales");
 };
 

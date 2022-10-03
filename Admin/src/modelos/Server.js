@@ -9,6 +9,8 @@ const artistCatalogueRouter = require("../Rutas/artistCatalogue.rutas");
 const cartRouter = require("../Rutas/cart.rutas");
 const liderandoRouter = require("../Rutas/liderando.rutas");
 const lideresSocialesRouter = require("../Rutas/lideresSociales.rutas");
+const lideresPoliticosRouter = require("../Rutas/lideresPoliticos.rutas");
+const lideresReligiososRouter = require("../Rutas/lideresReligiosos.rutas");
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 
@@ -27,7 +29,9 @@ class Server {
       productsPath: "/",
       cartPath: "/",
       liderandoPath: "/",
-      lideresSocialesPath: "/"
+      lideresSocialesPath: "/",
+      lideresPoliticosPath: "/",
+      lideresReligiososPath: "/"
     };
     this.conectarDb();
     this.app.use(cors());
@@ -54,6 +58,8 @@ class Server {
     this.app.use(this.paths.cartPath, cartRouter);
     this.app.use(this.paths.liderandoPath, liderandoRouter);
     this.app.use(this.paths.lideresSocialesPath, lideresSocialesRouter);
+    this.app.use(this.paths.lideresPoliticosPath, lideresPoliticosRouter);
+    this.app.use(this.paths.lideresPoliticosPath, lideresReligiososRouter);
   }
   listen() {
     this.app.listen(this.port);

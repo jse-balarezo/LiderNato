@@ -2,9 +2,9 @@ const express = require("express");
 
 const router = express.Router();
 const {
- renderLiderando
+    renderlideresSociales
 } = require("../controladores/lideresSociales.controlador");
 
-router.get("/lideresSociales", renderLiderando);
+router.get("/lideresSociales", renderlideresSociales);
 
 module.exports = router;
