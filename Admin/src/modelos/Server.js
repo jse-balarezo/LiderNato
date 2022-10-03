@@ -11,6 +11,10 @@ const liderandoRouter = require("../Rutas/liderando.rutas");
 const lideresSocialesRouter = require("../Rutas/lideresSociales.rutas");
 const lideresPoliticosRouter = require("../Rutas/lideresPoliticos.rutas");
 const lideresReligiososRouter = require("../Rutas/lideresReligiosos.rutas");
+const liderazgoRouter = require("../Rutas/liderazgo.rutas");
+const autoconocimientoRouter = require("../Rutas/autoconocimiento.rutas");
+const dentroRouter = require("../Rutas/dentro.rutas");
+const fundamentosRouter = require("../Rutas/fundamentos.rutas");
 const { connectDb } = require("../ConfiguracionBaseDatos/dbConnection");
 const { engine } = require("express-handlebars");
 
@@ -31,7 +35,11 @@ class Server {
       liderandoPath: "/",
       lideresSocialesPath: "/",
       lideresPoliticosPath: "/",
-      lideresReligiososPath: "/"
+      lideresReligiososPath: "/",
+      liderazgoPath: "/",
+      autoconocimientoPath: "/",
+      dentroPath: "/",
+      fundamentosPath: "/",
     };
     this.conectarDb();
     this.app.use(cors());
@@ -60,6 +68,10 @@ class Server {
     this.app.use(this.paths.lideresSocialesPath, lideresSocialesRouter);
     this.app.use(this.paths.lideresPoliticosPath, lideresPoliticosRouter);
     this.app.use(this.paths.lideresPoliticosPath, lideresReligiososRouter);
+    this.app.use(this.paths.liderazgoPath, liderazgoRouter);
+    this.app.use(this.paths.autoconocimientoPath, autoconocimientoRouter);
+    this.app.use(this.paths.dentroPath, dentroRouter);
+    this.app.use(this.paths.fundamentosPath, fundamentosRouter);
   }
   listen() {
     this.app.listen(this.port);
